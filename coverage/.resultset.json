@@ -1,0 +1,256 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/nickspencer/4Mod/intermission_work/Tea-Subcriber/config/environment.rb": {
+        "lines": [
+          null,
+          1,
+          null,
+          null,
+          1
+        ]
+      },
+      "/Users/nickspencer/4Mod/intermission_work/Tea-Subcriber/config/application.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/nickspencer/4Mod/intermission_work/Tea-Subcriber/config/boot.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1
+        ]
+      },
+      "/Users/nickspencer/4Mod/intermission_work/Tea-Subcriber/config/environments/test.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/nickspencer/4Mod/intermission_work/Tea-Subcriber/config/initializers/cors.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/nickspencer/4Mod/intermission_work/Tea-Subcriber/config/initializers/filter_parameter_logging.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/nickspencer/4Mod/intermission_work/Tea-Subcriber/config/initializers/inflections.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/nickspencer/4Mod/intermission_work/Tea-Subcriber/config/routes.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/nickspencer/4Mod/intermission_work/Tea-Subcriber/app/models/customer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/nickspencer/4Mod/intermission_work/Tea-Subcriber/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/nickspencer/4Mod/intermission_work/Tea-Subcriber/spec/models/subscription_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          2,
+          2,
+          null
+        ]
+      },
+      "/Users/nickspencer/4Mod/intermission_work/Tea-Subcriber/app/models/subscription.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/nickspencer/4Mod/intermission_work/Tea-Subcriber/spec/models/tea_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          2,
+          null
+        ]
+      },
+      "/Users/nickspencer/4Mod/intermission_work/Tea-Subcriber/app/models/tea.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      }
+    },
+    "timestamp": 1700514609
+  }
+}
