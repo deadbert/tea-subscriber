@@ -267,8 +267,24 @@
           1,
           null
         ]
+      },
+      "/Users/nickspencer/4Mod/intermission_work/Tea-Subcriber/app/controllers/api/v1/subscriptions_controller.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/nickspencer/4Mod/intermission_work/Tea-Subcriber/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null
+        ]
       }
     },
-    "timestamp": 1700533981
+    "timestamp": 1700534786
   }
 }

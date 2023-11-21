@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Subscription endpoints" do
   describe "create subscription endpoint" do
-    it "creates a new subscrition for a customer" do
+    it "creates a new subscription for a customer" do
       bob = Customer.create(first_name: "bob", last_name: "belcher", email: "bob@bobsburgers.com", address: "1234 place st")
       the_green = Tea.create(
         title: "Tazo greent tips",
@@ -20,11 +20,11 @@ RSpec.describe "Subscription endpoints" do
         tea_id: the_green.id
       }
 
-      post "/api/v1/subscriptions", params: data
+      post "/api/v1/subscriptions", params: data, as: :json
 
       expect(response).to be_successful
 
-      
+
     end
   end
 end
