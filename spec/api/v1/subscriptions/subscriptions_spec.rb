@@ -101,7 +101,17 @@ RSpec.describe "Subscription endpoints" do
 
       get "/api/v1/subscriptions?customer_id=#{tina.id}"
 
-      
+      expect(response).to be_successful
+      result = JSON.parse(response.body, symbolize_names: true)
+
+      expect(result).to have_key :data
+      expect(result[:data]).to be_an Array
+      expect(result[:data].first).to have_key :id
+      expect(result[:data].first).to have_key :type
+      expect(result[:data].first).to have_key :attributes
+      expect(result[:data].first[:type]).to eq("subscription")
+      expect(result[:data].second[:attributes][:status]).to eq("cancelled")
+      expect(result[:data].first[:attributes][:status]).to eq("active")
     end
   end
 end
