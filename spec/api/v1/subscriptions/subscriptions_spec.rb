@@ -25,7 +25,7 @@ RSpec.describe "Subscription endpoints" do
       expect(response).to be_successful
 
       new_sub = Subscription.last
-
+require 'pry';binding.pry
       expect(new_sub.title).to eq("The green to go")
       expect(new_sub.price).to eq(15.50)
       expect(new_sub.status).to eq(1)

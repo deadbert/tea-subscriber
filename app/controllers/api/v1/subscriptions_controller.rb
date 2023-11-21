@@ -1,8 +1,12 @@
 class Api::V1::SubscriptionsController < ApplicationController
 
   def create
-    new_sub = Subscription.create(subscription_params)
-
+    new_sub = Subscription.new(subscription_params)
+    if new_sub.save
+      render json: SubscriptionSerializer.new(new_sub)
+    else
+      render json: {error: "#{new_sub.errors.full_messages.join(',')}"}
+    end
   end
 
   private
