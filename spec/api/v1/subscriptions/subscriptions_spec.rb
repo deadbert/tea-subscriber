@@ -1,23 +1,53 @@
 require 'rails_helper'
 
 RSpec.describe "Subscription endpoints" do
+  before(:each) do
+    @bob = Customer.create(first_name: "bob", last_name: "belcher", email: "bob@bobsburgers.com", address: "1234 place st")
+    @tina = Customer.create(first_name: "Tina", last_name: "belcher", email: "tina@bobsburgers.com", address: "1234 place st")
+
+    @the_green = Tea.create(
+      title: "Tazo greent tips",
+      description: "A light refreshing green tea for everyday refreshment",
+      temperature: 175.5,
+      brew_time: 3.45
+    )
+    
+    @the_earl = Tea.create(
+      title: "Tazo Earl Gray",
+      description: "A classic english lunch tea",
+      temperature: 180.5,
+      brew_time: 4.10
+    )
+
+    Subscription.create(
+      title: "go for green",
+      price: 15.00,
+      status: 1,
+      frequency: 0,
+      customer_id: @tina.id,
+      tea_id: @the_green.id
+    )
+
+    Subscription.create(
+      title: "Lunch all the time",
+      price: 17.00,
+      status: 0,
+      frequency: 1,
+      customer_id: @tina.id,
+      tea_id: @the_green.id
+    )
+
+  end
   describe "create subscription endpoint" do
     it "creates a new subscription for a customer" do
-      bob = Customer.create(first_name: "bob", last_name: "belcher", email: "bob@bobsburgers.com", address: "1234 place st")
-      the_green = Tea.create(
-        title: "Tazo greent tips",
-        description: "A light refreshing green tea for everyday refreshment",
-        temperature: 175.5,
-        brew_time: 3.45
-      )
 
       data = {
         title: "The green to go",
         price: 15.50,
         status: 1,
         frequency: 1,
-        customer_id: bob.id, 
-        tea_id: the_green.id
+        customer_id: @bob.id, 
+        tea_id: @the_green.id
       }
 
       post "/api/v1/subscriptions", params: data, as: :json
@@ -30,8 +60,8 @@ RSpec.describe "Subscription endpoints" do
       expect(new_sub.price).to eq(15.50)
       expect(new_sub.status).to eq("active")
       expect(new_sub.frequency).to eq("weekly")
-      expect(new_sub.customer_id).to eq(bob.id)
-      expect(new_sub.tea_id).to eq(the_green.id)
+      expect(new_sub.customer_id).to eq(@bob.id)
+      expect(new_sub.tea_id).to eq(@the_green.id)
 
       result = JSON.parse(response.body, symbolize_names: true)
 
@@ -65,41 +95,7 @@ RSpec.describe "Subscription endpoints" do
   describe "user Subscriptions index endpoint" do
     it "Shows all subscriptions for a user, active or cancelled" do
 
-      tina = Customer.create(first_name: "Tina", last_name: "belcher", email: "tina@bobsburgers.com", address: "1234 place st")
-
-      the_green = Tea.create(
-        title: "Tazo greent tips",
-        description: "A light refreshing green tea for everyday refreshment",
-        temperature: 175.5,
-        brew_time: 3.45
-      )
-      
-      the_earl = Tea.create(
-        title: "Tazo Earl Gray",
-        description: "A classic english lunch tea",
-        temperature: 180.5,
-        brew_time: 4.10
-      )
-
-      Subscription.create(
-        title: "go for green",
-        price: 15.00,
-        status: 1,
-        frequency: 0,
-        customer_id: tina.id,
-        tea_id: the_green.id
-      )
-
-      Subscription.create(
-        title: "Lunch all the time",
-        price: 17.00,
-        status: 0,
-        frequency: 1,
-        customer_id: tina.id,
-        tea_id: the_green.id
-      )
-
-      get "/api/v1/subscriptions?customer_id=#{tina.id}"
+      get "/api/v1/subscriptions?customer_id=#{@tina.id}"
 
       expect(response).to be_successful
       result = JSON.parse(response.body, symbolize_names: true)
