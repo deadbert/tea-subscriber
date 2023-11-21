@@ -19,7 +19,7 @@ RSpec.describe "Subscription endpoints" do
       brew_time: 4.10
     )
 
-    Subscription.create(
+    @sub1 = Subscription.create(
       title: "go for green",
       price: 15.00,
       status: 1,
@@ -28,7 +28,7 @@ RSpec.describe "Subscription endpoints" do
       tea_id: @the_green.id
     )
 
-    Subscription.create(
+    @sub2 = Subscription.create(
       title: "Lunch all the time",
       price: 17.00,
       status: 0,
@@ -119,6 +119,15 @@ RSpec.describe "Subscription endpoints" do
 
       expect(result).to have_key :error
       expect(result[:error]).to eq("Couldn't find Customer with 'id'=-1")
+    end
+  end
+
+  describe "subscription update undpoint for cancellations" do
+    it "can update a subscription and set status to cancelled" do
+
+      patch "/api/v1/subscriptions/#{@sub1.id}?status=cancelled"
+
+      require 'pry';binding.pry
     end
   end
 end
