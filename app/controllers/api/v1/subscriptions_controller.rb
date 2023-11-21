@@ -5,7 +5,7 @@ class Api::V1::SubscriptionsController < ApplicationController
     if new_sub.save
       render json: SubscriptionSerializer.new(new_sub)
     else
-      render json: {error: "#{new_sub.errors.full_messages.join(',')}"}
+      render json: {error: "#{new_sub.errors.full_messages.join(',')}"}, status: :conflict
     end
   end
 
