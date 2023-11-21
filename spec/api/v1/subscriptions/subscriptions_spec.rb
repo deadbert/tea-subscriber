@@ -24,7 +24,14 @@ RSpec.describe "Subscription endpoints" do
 
       expect(response).to be_successful
 
+      new_sub = Subscription.last
 
+      expect(new_sub.title).to eq("The green to go")
+      expect(new_sub.price).to eq(15.50)
+      expect(new_sub.status).to eq(1)
+      expect(new_sub.frequency).to eq(1)
+      expect(new_sub.customer_id).to eq(bob.id)
+      expect(new_sub.tea_id).to eq(the_green.id)
     end
   end
 end
