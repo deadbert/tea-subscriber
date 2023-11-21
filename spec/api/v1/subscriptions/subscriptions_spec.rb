@@ -41,5 +41,24 @@ RSpec.describe "Subscription endpoints" do
       expect(result[:data][:type]).to eq("subscription")
       expect(result[:data]).to have_key :attributes
     end
+
+    it "returns a 409 status and error message when invalid Subscription info is passed in the request" do
+
+      data = {
+        title: "The green to go",
+        price: 15.50,
+        status: 1,
+        frequency: 1
+      }
+
+      post "/api/v1/subscriptions", params: data, as: :json
+
+      expect(response.status).to eq(409)
+
+      result = JSON.parse(response.body, symbolize_names: true)
+
+      expect(result).to have_key :error
+      expect(result[:error]).to eq("Customer must exist,Tea must exist")
+    end
   end
 end
