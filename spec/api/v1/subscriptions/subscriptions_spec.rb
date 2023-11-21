@@ -113,5 +113,16 @@ RSpec.describe "Subscription endpoints" do
       expect(result[:data].second[:attributes][:status]).to eq("cancelled")
       expect(result[:data].first[:attributes][:status]).to eq("active")
     end
+
+    it "returns error when customer_id is not valid" do
+
+      get "/api/v1/subscriptions?customer_id=-1"
+
+      expect(response).to_not be_successful
+      result = JSON.parse(response.body, symbolize_names: true)
+
+      expect(result).to have_key :error
+      expect(result[:error]).to eq("Couldn't find Customer with 'id'=-1")
+    end
   end
 end
