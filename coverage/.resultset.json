@@ -197,6 +197,24 @@
           null,
           null,
           null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/nickspencer/4Mod/intermission_work/Tea-Subcriber/spec/models/customer_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          2,
+          2,
+          null,
           null
         ]
       },
@@ -251,6 +269,6 @@
         ]
       }
     },
-    "timestamp": 1700514609
+    "timestamp": 1700533981
   }
 }
