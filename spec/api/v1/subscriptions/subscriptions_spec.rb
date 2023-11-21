@@ -61,4 +61,47 @@ RSpec.describe "Subscription endpoints" do
       expect(result[:error]).to eq("Customer must exist,Tea must exist")
     end
   end
+
+  describe "user Subscriptions index endpoint" do
+    it "Shows all subscriptions for a user, active or cancelled" do
+
+      tina = Customer.create(first_name: "Tina", last_name: "belcher", email: "tina@bobsburgers.com", address: "1234 place st")
+
+      the_green = Tea.create(
+        title: "Tazo greent tips",
+        description: "A light refreshing green tea for everyday refreshment",
+        temperature: 175.5,
+        brew_time: 3.45
+      )
+      
+      the_earl = Tea.create(
+        title: "Tazo Earl Gray",
+        description: "A classic english lunch tea",
+        temperature: 180.5,
+        brew_time: 4.10
+      )
+
+      Subscription.create(
+        title: "go for green",
+        price: 15.00,
+        status: 1,
+        frequency: 0,
+        customer_id: tina.id,
+        tea_id: the_green.id
+      )
+
+      Subscription.create(
+        title: "Lunch all the time",
+        price: 17.00,
+        status: 0,
+        frequency: 1,
+        customer_id: tina.id,
+        tea_id: the_green.id
+      )
+
+      get "/api/v1/subscriptions?customer_id=#{tina.id}"
+
+      
+    end
+  end
 end
