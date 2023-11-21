@@ -28,7 +28,7 @@ RSpec.describe "Subscription endpoints" do
 
       expect(new_sub.title).to eq("The green to go")
       expect(new_sub.price).to eq(15.50)
-      expect(new_sub.status).to eq(1)
+      expect(new_sub.status).to eq("active")
       expect(new_sub.frequency).to eq(1)
       expect(new_sub.customer_id).to eq(bob.id)
       expect(new_sub.tea_id).to eq(the_green.id)
@@ -40,6 +40,7 @@ RSpec.describe "Subscription endpoints" do
       expect(result[:data]).to have_key :type
       expect(result[:data][:type]).to eq("subscription")
       expect(result[:data]).to have_key :attributes
+      require 'pry';binding.pry
     end
 
     it "returns a 409 status and error message when invalid Subscription info is passed in the request" do
