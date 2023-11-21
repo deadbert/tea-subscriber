@@ -19,9 +19,13 @@ class Api::V1::SubscriptionsController < ApplicationController
   end
 
   def update
-    subscription = Subscription.find(params[:id])
-    subscription.update(status: params[:status])
-    render json: SubscriptionSerializer.new(subscription)
+    begin
+      subscription = Subscription.find(params[:id])
+      subscription.update(status: params[:status])
+      render json: SubscriptionSerializer.new(subscription)
+    rescue ActiveRecord::RecordNotFound => e
+      render json: {error: "#{e.message}"}, status: :not_found
+    end
   end
 
   private

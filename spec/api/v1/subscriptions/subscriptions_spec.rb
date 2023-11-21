@@ -141,7 +141,12 @@ RSpec.describe "Subscription endpoints" do
 
       patch "/api/v1/subscriptions/-1?status=cancelled"
 
-      require 'pry';binding.pry
+      expect(response).to_not be_successful
+      
+      result = JSON.parse(response.body, symbolize_names: true)
+
+      expect(result).to have_key :error
+      expect(result[:error]).to eq("Couldn't find Subscription with 'id'=-1")
     end
   end
 end
