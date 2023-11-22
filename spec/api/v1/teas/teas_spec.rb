@@ -22,6 +22,19 @@ RSpec.describe "Teas endpoints" do
       get "/api/v1/teas"
 
       expect(response).to be_successful
+
+      result = JSON.parse(response.body, symbolize_names: true)
+
+      expect(result).to have_key :data
+      expect(result[:data]).to be_an Array
+      expect(result[:data].first).to have_key :id
+      expect(result[:data].first).to have_key :type
+      expect(result[:data].first).to have_key :attributes
+      expect(result[:data].first[:type]).to eq("tea")
+      expect(result[:data].first[:attributes]).to have_key :title
+      expect(result[:data].first[:attributes]).to have_key :description
+      expect(result[:data].first[:attributes]).to have_key :temperature
+      expect(result[:data].first[:attributes]).to have_key :brew_time
     end
   end
 end
