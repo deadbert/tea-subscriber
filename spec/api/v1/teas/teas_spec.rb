@@ -51,6 +51,18 @@ RSpec.describe "Teas endpoints" do
       post "/api/v1/teas", params: data, as: :json
 
       expect(response).to be_successful
+
+      result = JSON.parse(response.body, symbolize_names: true)
+
+      expect(result).to have_key :data
+      expect(result[:data]).to have_key :id
+      expect(result[:data]).to have_key :type
+      expect(result[:data]).to have_key :attributes
+      expect(result[:data][:type]).to eq("tea")
+      expect(result[:data][:attributes][:title]).to eq("Lapsang Su Chong")
+      expect(result[:data][:attributes][:description]).to eq("A smokey tea from China")
+      expect(result[:data][:attributes][:temperature]).to eq(175.5)
+      expect(result[:data][:attributes][:brew_time]).to eq(3.45)
     end
   end
 end
