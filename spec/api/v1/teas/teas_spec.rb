@@ -37,4 +37,20 @@ RSpec.describe "Teas endpoints" do
       expect(result[:data].first[:attributes]).to have_key :brew_time
     end
   end
+
+  describe "POST teas endpoint" do
+    it "creates a new tea resource in the DB" do
+
+      data = {
+        title: "Lapsang Su Chong",
+        description: "A smokey tea from China",
+        temperature: 175.5,
+        brew_time: 3.45
+      }
+
+      post "/api/v1/teas", params: data, as: :json
+
+      expect(response).to be_successful
+    end
+  end
 end
