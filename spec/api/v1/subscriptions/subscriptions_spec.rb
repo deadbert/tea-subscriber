@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe "Subscription endpoints" do
   before(:each) do
-    @bob = Customer.create(first_name: "bob", last_name: "belcher", email: "bob@bobsburgers.com", address: "1234 place st")
-    @tina = Customer.create(first_name: "Tina", last_name: "belcher", email: "tina@bobsburgers.com", address: "1234 place st")
+    @bob = Customer.create(first_name: "bob", last_name: "belcher", email: "bob@bobsburgers.com", address: "1234 place st", password: "1234")
+    @tina = Customer.create(first_name: "Tina", last_name: "belcher", email: "tina@bobsburgers.com", address: "1234 place st", password: "1234")
 
     @the_green = Tea.create(
       title: "Tazo greent tips",
