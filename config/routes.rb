@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :subscriptions, only: [:create, :index, :update]
       resources :teas, only: [:index, :create]
+      resources :customers, only: [:create]
     end
   end
 end
