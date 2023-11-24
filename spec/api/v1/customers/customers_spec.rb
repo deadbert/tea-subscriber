@@ -16,7 +16,13 @@ RSpec.describe "Customers endpoints" do
 
       expect(response).to be_successful
 
-      require 'pry';binding.pry
+      result = JSON.parse(response.body, symbolize_names: true)
+
+      expect(result).to have_key :data
+      expect(result[:data]).to have_key :id
+      expect(result[:data]).to have_key :type
+      expect(result[:data]).to have_key :attributes
+      expect(result[:data][:type]).to eq("customer")
     end
   end
 end
