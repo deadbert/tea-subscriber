@@ -9,6 +9,10 @@ class Api::V1::CustomersController < ApplicationController
     end
   end
 
+  def index
+    render json: CustomerSerializer.new(Customer.all)
+  end
+
   private
 
   def customer_params
