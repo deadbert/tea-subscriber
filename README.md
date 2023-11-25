@@ -2,6 +2,14 @@
 
 Practice API application that imagines handling tea subscriptions for a front facing web app. Database is postgresql, and holds data on specific teas, customers and subscriptions. Customer passwords are salted and hashed uzing bcrypt for authentication in this Back End app. 
 
+## How to run the app localy for testing
+- Fork and clone a copy of the repo down to your local machine
+- run `bundle install` in terminal to install all gem dependencies
+- run `rails db:create`
+- run `rails db:migrate` to run all built migrations
+- run `rails s` to spin up  the server on localhost:3000 port
+- server will be running and can be tested using a FE app or accessed with a program like Postman
+
 ## Endpoints
 
 ### POST Endpoints
